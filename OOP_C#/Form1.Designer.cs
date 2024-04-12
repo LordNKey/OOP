@@ -1,6 +1,6 @@
 ﻿namespace OOP_C_
 {
-    partial class Form1
+    partial class fMainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,12 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            pbMainField = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pbMainField).BeginInit();
+            SuspendLayout();
+            // 
+            // pbMainField
+            // 
+            pbMainField.BorderStyle = BorderStyle.FixedSingle;
+            pbMainField.Location = new Point(1, 77);
+            pbMainField.Name = "pbMainField";
+            pbMainField.Size = new Size(799, 372);
+            pbMainField.TabIndex = 0;
+            pbMainField.TabStop = false;
+            pbMainField.Paint += pbMainField_Paint;
+            // 
+            // fMainForm
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(pbMainField);
+            Name = "fMainForm";
+            Text = "ООП";
+            ((System.ComponentModel.ISupportInitialize)pbMainField).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private PictureBox pbMainField;
     }
 }
