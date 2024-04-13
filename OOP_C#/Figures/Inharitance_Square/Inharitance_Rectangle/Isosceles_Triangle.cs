@@ -8,17 +8,7 @@ namespace OOP_C_.Figures.Inharitance_Square.Inharitance_Rectangle
 {
     internal class Isosceles_Triangle : Rectangle
     {
-        public Isosceles_Triangle(Color fill_color_, Color out_color_, float coordinate_x_, float coordinate_y_, float width_, float height_) :
-            base(fill_color_, out_color_, coordinate_x_, coordinate_y_, width_, height_){ }
-        override public void Draw(Graphics g)
-        {
-            // Create isosceles_triangle. Creating in realative to the highest left point of the rectangle
-            PointF[] isosceles_triangle = {new PointF(coordinate_x, coordinate_y + height),
-                                           new PointF(coordinate_x + width / 2, coordinate_y),
-                                           new PointF(coordinate_x + width, coordinate_y + height)};
-            // Draw triangle
-            g.FillPolygon(new SolidBrush(fill_color), isosceles_triangle);
-            g.DrawPolygon(new Pen(out_color, border_width), isosceles_triangle);
-        }
+        public Isosceles_Triangle(Color fill_color_, Color border_color_, float coordinate_x_, float coordinate_y_, float width_, float height_) :
+            base(fill_color_, border_color_, coordinate_x_, coordinate_y_, width_, height_){ }
     }
 }

@@ -8,20 +8,18 @@ namespace OOP_C_.Figures
 {
     internal class Square : Figure
     {
-        protected float width;
-        public Square(Color fill_color_, Color out_color_, float coordinate_x_, float coordinate_y_, float width_)
+        public float width;
+        public Square(Color fill_color_, Color border_color_, float coordinate_x_, float coordinate_y_, float width_)
         {
             fill_color = fill_color_;
-            out_color = out_color_;
+            border_color = border_color_;
             coordinate_x = coordinate_x_;
             coordinate_y = coordinate_y_;
             width = width_;
         }
-        override public void Draw(Graphics g) 
+        public override void Change_Params(float dist_x, float dist_y)
         {
-            RectangleF rect = new RectangleF(coordinate_x, coordinate_y, width, width);
-            g.FillRectangle(new SolidBrush(fill_color), rect);
-            g.DrawRectangle(new Pen(out_color, border_width), rect);
+            width = (float)Math.Sqrt(dist_x * dist_x + dist_y * dist_y);
         }
     }
 }

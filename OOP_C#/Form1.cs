@@ -12,12 +12,67 @@ namespace OOP_C_
         private void pbMainField_Paint(object sender, PaintEventArgs e)
         {
             Graphics graphic = e.Graphics;
-            List_Figures list_Figures = new List_Figures();
-            Square square = new Square(Color.Red, Color.Black, 100, 100, 50);
-            list_Figures.Add_Figure(square);
-            OOP_C_.Figures.Inharitance_Square.Rectangle rec = new OOP_C_.Figures.Inharitance_Square.Rectangle(Color.Red, Color.Aqua, 200, 300, 50, 80);
-            list_Figures.Add_Figure(rec);
-            list_Figures.Draw_Figures(graphic);
+            List_Figures.Draw_Figures(graphic);
+        }
+
+
+        Color fill_color;
+        Color border_color;
+        PointF first_point;
+        bool Set = false;
+        private void pbMainField_MouseDown(object sender, MouseEventArgs e)
+        {
+            int index = cbFigure.SelectedIndex;
+            if (!Set)
+            {
+                Set = true;
+                first_point = e.Location;
+                List_Figures.Add_Figure(List_Concrete_Factories.factories[index].Create_Figure(fill_color, border_color, first_point, first_point), index);
+            }
+        }
+
+        private void pbMainField_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (Set)
+            {
+                List_Figures.Last().figure.Change_Params(first_point.X - e.X, first_point.Y - e.Y);
+                pbMainField.Invalidate();
+                pbMainField.Update();
+            }
+        }
+
+        private void bFill_color_Click(object sender, EventArgs e)
+        {
+            ColorDialog Dialog = new ColorDialog();
+            Dialog.AllowFullOpen = true;
+            Dialog.ShowHelp = true;
+            // Sets the initial color select to the current text color.
+            Dialog.Color = bFill_color.BackColor;
+
+            // Update the text box color if the user clicks OK  
+            if (Dialog.ShowDialog() == DialogResult.OK)
+                bFill_color.BackColor = fill_color = Dialog.Color;
+        }
+
+        private void bBorder_color_Click(object sender, EventArgs e)
+        {
+            ColorDialog Dialog = new ColorDialog();
+            Dialog.AllowFullOpen = true;
+            Dialog.ShowHelp = true;
+            // Sets the initial color select to the current text color.
+            Dialog.Color = bBorder_color.BackColor;
+
+            // Update the text box color if the user clicks OK  
+            if (Dialog.ShowDialog() == DialogResult.OK)
+                bBorder_color.BackColor = border_color = Dialog.Color;
+        }
+
+        private void pbMainField_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (Set)
+            {
+                Set = false;
+            }
         }
     }
 }

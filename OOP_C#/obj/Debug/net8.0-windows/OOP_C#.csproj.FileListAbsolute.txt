@@ -14,3 +14,4 @@ D:\Git_Repositories\OOP\OOP_C#\obj\Debug\net8.0-windows\refint\OOP_C#.dll
 D:\Git_Repositories\OOP\OOP_C#\obj\Debug\net8.0-windows\OOP_C#.pdb
 D:\Git_Repositories\OOP\OOP_C#\obj\Debug\net8.0-windows\OOP_C#.genruntimeconfig.cache
 D:\Git_Repositories\OOP\OOP_C#\obj\Debug\net8.0-windows\ref\OOP_C#.dll
+D:\Git_Repositories\OOP\OOP_C#\obj\Debug\net8.0-windows\OOP_C#.sourcelink.json
