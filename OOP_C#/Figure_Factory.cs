@@ -4,6 +4,7 @@ using OOP_C_.Figures.Inharitance_Square.Inharitance_Rectangle;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Intrinsics.X86;
 using System.Text;
 using System.Threading.Tasks;
 
