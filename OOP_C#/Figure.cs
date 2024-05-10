@@ -13,8 +13,9 @@ namespace OOP_C_
         public Color border_color;
         public float border_width = 3;
         //field; coordinate;
-        public float coordinate_x;
-        public float coordinate_y;
+        public Point top_corner_point, lower_corner_point;
+        private bool selected = false;
+
         public virtual void Draw(Graphics g) { }
         //public virtual void Change_Params(PointF point_1, PointF point_2)
         public virtual void Change_Params(float dist_x, float dist_y) { }
