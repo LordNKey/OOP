@@ -1,4 +1,7 @@
 using OOP_C_.Figures;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace OOP_C_
 {
@@ -7,6 +10,11 @@ namespace OOP_C_
         public fMainForm()
         {
             InitializeComponent();
+            List_Concrete_Factories.Initialize();
+            foreach (Figure_Factory factory in List_Concrete_Factories.factories)
+            {
+                cbFigure.Items.Add(factory.name);
+            }
         }
 
         private void pbMainField_Paint(object sender, PaintEventArgs e)
@@ -19,23 +27,45 @@ namespace OOP_C_
         Color fill_color;
         Color border_color;
         PointF first_point;
-        bool Set = false;
+        bool create = false;
+        bool change = false;
+        List<Figure> change_figure = new List<Figure>();
         private void pbMainField_MouseDown(object sender, MouseEventArgs e)
         {
-            int index = cbFigure.SelectedIndex;
-            if (!Set)
+            Figure tmp;
+            if ((tmp = List_Figures.Search_Figure(e.Location)) != null)
             {
-                Set = true;
-                first_point = e.Location;
-                List_Figures.Add_Figure(List_Concrete_Factories.factories[index].Create_Figure(fill_color, border_color, first_point, first_point), index);
+                change_figure.Add(tmp);
+                change = true;
+                bFill_color.BackColor = fill_color = change_figure.Last().fill_color;
+                bBorder_color.BackColor = border_color = change_figure.Last().border_color;
             }
+            else
+            {
+                // Reset selection
+                foreach (Figure figure in change_figure)
+                {
+                    figure.selected = false;
+                    change_figure = new List<Figure>();
+                }
+                // Create new figure
+                int index = cbFigure.SelectedIndex;
+                if (!create)
+                {
+                    create = true;
+                    first_point = e.Location;
+                    List_Figures.Add_Figure(List_Concrete_Factories.factories[index].Create_Figure(fill_color, border_color, first_point, first_point), index);
+                }
+            }
+            pbMainField.Invalidate();
+            pbMainField.Update();
         }
 
         private void pbMainField_MouseMove(object sender, MouseEventArgs e)
         {
-            if (Set)
+            if (create)
             {
-                List_Figures.Last().figure.Change_Params(first_point.X - e.X, first_point.Y - e.Y);
+                List_Figures.Last().figure.Change_Params_Create(first_point, e.Location);
                 pbMainField.Invalidate();
                 pbMainField.Update();
             }
@@ -51,7 +81,22 @@ namespace OOP_C_
 
             // Update the text box color if the user clicks OK  
             if (Dialog.ShowDialog() == DialogResult.OK)
-                bFill_color.BackColor = fill_color = Dialog.Color;
+            {
+                if (change)
+                {
+                    bFill_color.BackColor = fill_color = Dialog.Color;
+                    foreach (Figure figure in change_figure)
+                    {
+                        figure.fill_color = fill_color;
+                    }
+                }
+                else
+                {
+                    bFill_color.BackColor = fill_color = Dialog.Color;
+                }
+            }
+            pbMainField.Invalidate();
+            pbMainField.Update();
         }
 
         private void bBorder_color_Click(object sender, EventArgs e)
@@ -64,15 +109,125 @@ namespace OOP_C_
 
             // Update the text box color if the user clicks OK  
             if (Dialog.ShowDialog() == DialogResult.OK)
-                bBorder_color.BackColor = border_color = Dialog.Color;
+            {
+                if (change)
+                {
+                    bBorder_color.BackColor = border_color = Dialog.Color;
+                    foreach (Figure figure in change_figure)
+                    {
+                        figure.border_color = border_color;
+                    }
+                }
+                else
+                {
+                    bBorder_color.BackColor = border_color = Dialog.Color;
+                }
+            }
+            pbMainField.Invalidate();
+            pbMainField.Update();
         }
 
         private void pbMainField_MouseUp(object sender, MouseEventArgs e)
         {
-            if (Set)
+            if (create)
             {
-                Set = false;
+                create = false;
             }
+        }
+
+        private void jSONToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog OpenFile = new OpenFileDialog())
+            {
+                OpenFile.InitialDirectory = "d:\\OOP";
+                OpenFile.RestoreDirectory = true;
+
+                if (OpenFile.ShowDialog() == DialogResult.OK)
+                {
+                    string json = File.ReadAllText(OpenFile.FileName);
+                    List_Figures.Unserialisation_JSON(json);
+                }
+            }
+            pbMainField.Invalidate();
+            pbMainField.Update();
+        }
+
+        private void bINToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog OpenFile = new OpenFileDialog())
+            {
+                OpenFile.InitialDirectory = "d:\\OOP";
+                OpenFile.RestoreDirectory = true;
+
+                if (OpenFile.ShowDialog() == DialogResult.OK)
+                {
+                    using (var stream = File.Open(OpenFile.FileName, FileMode.Open))
+                    {
+                        using (var reader = new BinaryReader(stream, Encoding.UTF8, false))
+                        {
+                            List_Figures.Unserialisation_BIN(reader);
+                        }
+                    }
+                    //File.WriteAllBytes(SaveFile.FileName, Bytes);
+                }
+            }
+            pbMainField.Invalidate();
+            pbMainField.Update();
+        }
+
+        private void jSONToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog SaveFile = new SaveFileDialog())
+            {
+                SaveFile.InitialDirectory = "d:\\OOP";
+                SaveFile.RestoreDirectory = true;
+
+                if (SaveFile.ShowDialog() == DialogResult.OK)
+                {
+                    File.WriteAllText(SaveFile.FileName, List_Figures.Serialisation_JSON());
+                }
+            }
+        }
+
+        private void bINToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog SaveFile = new SaveFileDialog())
+            {
+                SaveFile.InitialDirectory = "d:\\OOP";
+                SaveFile.RestoreDirectory = true;
+
+                if (SaveFile.ShowDialog() == DialogResult.OK)
+                {
+                    using (var stream = File.Open(SaveFile.FileName, FileMode.Create))
+                    {
+                        using (var writer = new BinaryWriter(stream, Encoding.UTF8, false))
+                        {
+                            List_Figures.Serialisation_BIN(writer);
+                        }
+                    }
+                    //File.WriteAllBytes(SaveFile.FileName, Bytes);
+                }
+            }
+        }
+
+        private void bDelete_Click(object sender, EventArgs e)
+        {
+            List<Figure> figures_to_remove = new List<Figure>();
+            // Find
+            foreach (Figure figure in change_figure)
+            {
+                List_Figures.Delete_Figure(figure);
+                figures_to_remove.Add(figure);
+
+            }
+            // Delete
+            foreach (Figure figure in figures_to_remove)
+            { 
+                change_figure.Remove(figure);
+            }
+
+            pbMainField.Invalidate();
+            pbMainField.Update();
         }
     }
 }

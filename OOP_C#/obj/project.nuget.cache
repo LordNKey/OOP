@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "GNn77vVSWGSoGlwbSLqETM55aPBY5pKKgKaHKX3EfTXm901pfqqNT7I5/ATUz0V4vkNjo1+0boPdT8SQnhyj7A==",
+  "dgSpecHash": "dyNjfnanW3aZsOK7tSZBif44BVNdooPK9L2VtFPIS8mU3IQU/bH5MixuWsqNibLGP8nlHPMHyDpb3QBvMJqhgA==",
   "success": true,
   "projectFilePath": "D:\\Git_Repositories\\OOP\\OOP_C#\\OOP_C#.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ASUS\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

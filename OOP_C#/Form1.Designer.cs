@@ -28,14 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMainForm));
             pbMainField = new PictureBox();
             pMainPanel = new Panel();
+            bDelete = new Button();
             bBorder_color = new Button();
             bFill_color = new Button();
             lFigure = new Label();
             cbFigure = new ComboBox();
+            menuStrip1 = new MenuStrip();
+            файлToolStripMenuItem = new ToolStripMenuItem();
+            открытьToolStripMenuItem = new ToolStripMenuItem();
+            jSONToolStripMenuItem1 = new ToolStripMenuItem();
+            bINToolStripMenuItem1 = new ToolStripMenuItem();
+            toolStripSeparator = new ToolStripSeparator();
+            сохранитьToolStripMenuItem = new ToolStripMenuItem();
+            jSONToolStripMenuItem = new ToolStripMenuItem();
+            bINToolStripMenuItem = new ToolStripMenuItem();
+            toolStripSeparator1 = new ToolStripSeparator();
+            toolStripSeparator2 = new ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)pbMainField).BeginInit();
             pMainPanel.SuspendLayout();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // pbMainField
@@ -56,14 +70,26 @@
             // 
             pMainPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pMainPanel.BorderStyle = BorderStyle.FixedSingle;
+            pMainPanel.Controls.Add(bDelete);
             pMainPanel.Controls.Add(bBorder_color);
             pMainPanel.Controls.Add(bFill_color);
             pMainPanel.Controls.Add(lFigure);
             pMainPanel.Controls.Add(cbFigure);
+            pMainPanel.Controls.Add(menuStrip1);
             pMainPanel.Location = new Point(1, 1);
             pMainPanel.Name = "pMainPanel";
             pMainPanel.Size = new Size(1200, 77);
             pMainPanel.TabIndex = 1;
+            // 
+            // bDelete
+            // 
+            bDelete.Location = new Point(527, 21);
+            bDelete.Name = "bDelete";
+            bDelete.Size = new Size(161, 28);
+            bDelete.TabIndex = 4;
+            bDelete.Text = "Удалить";
+            bDelete.UseVisualStyleBackColor = true;
+            bDelete.Click += bDelete_Click;
             // 
             // bBorder_color
             // 
@@ -99,12 +125,91 @@
             // 
             cbFigure.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             cbFigure.FormattingEnabled = true;
-            cbFigure.Items.AddRange(new object[] { "Квадрат", "Прямоугольник", "Круг", "Овал", "Равносторонний треугольник", "Равнобедренный треугольник", "Прямоугольный треугольник" });
             cbFigure.Location = new Point(250, 40);
             cbFigure.Name = "cbFigure";
             cbFigure.Size = new Size(151, 28);
             cbFigure.TabIndex = 0;
             cbFigure.Text = "Выберете фигуру";
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { файлToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1198, 28);
+            menuStrip1.TabIndex = 5;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // файлToolStripMenuItem
+            // 
+            файлToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { открытьToolStripMenuItem, toolStripSeparator, сохранитьToolStripMenuItem, toolStripSeparator1, toolStripSeparator2 });
+            файлToolStripMenuItem.Name = "файлToolStripMenuItem";
+            файлToolStripMenuItem.Size = new Size(59, 24);
+            файлToolStripMenuItem.Text = "&Файл";
+            // 
+            // открытьToolStripMenuItem
+            // 
+            открытьToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { jSONToolStripMenuItem1, bINToolStripMenuItem1 });
+            открытьToolStripMenuItem.Image = (Image)resources.GetObject("открытьToolStripMenuItem.Image");
+            открытьToolStripMenuItem.ImageTransparentColor = Color.Magenta;
+            открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
+            открытьToolStripMenuItem.ShowShortcutKeys = false;
+            открытьToolStripMenuItem.Size = new Size(157, 26);
+            открытьToolStripMenuItem.Text = "&Открыть";
+            // 
+            // jSONToolStripMenuItem1
+            // 
+            jSONToolStripMenuItem1.Name = "jSONToolStripMenuItem1";
+            jSONToolStripMenuItem1.Size = new Size(127, 26);
+            jSONToolStripMenuItem1.Text = "JSON";
+            jSONToolStripMenuItem1.Click += jSONToolStripMenuItem1_Click;
+            // 
+            // bINToolStripMenuItem1
+            // 
+            bINToolStripMenuItem1.Name = "bINToolStripMenuItem1";
+            bINToolStripMenuItem1.Size = new Size(127, 26);
+            bINToolStripMenuItem1.Text = "BIN";
+            bINToolStripMenuItem1.Click += bINToolStripMenuItem1_Click;
+            // 
+            // toolStripSeparator
+            // 
+            toolStripSeparator.Name = "toolStripSeparator";
+            toolStripSeparator.Size = new Size(154, 6);
+            // 
+            // сохранитьToolStripMenuItem
+            // 
+            сохранитьToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { jSONToolStripMenuItem, bINToolStripMenuItem });
+            сохранитьToolStripMenuItem.Image = (Image)resources.GetObject("сохранитьToolStripMenuItem.Image");
+            сохранитьToolStripMenuItem.ImageTransparentColor = Color.Magenta;
+            сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
+            сохранитьToolStripMenuItem.ShowShortcutKeys = false;
+            сохранитьToolStripMenuItem.Size = new Size(157, 26);
+            сохранитьToolStripMenuItem.Text = "&Сохранить";
+            // 
+            // jSONToolStripMenuItem
+            // 
+            jSONToolStripMenuItem.Name = "jSONToolStripMenuItem";
+            jSONToolStripMenuItem.Size = new Size(127, 26);
+            jSONToolStripMenuItem.Text = "JSON";
+            jSONToolStripMenuItem.Click += jSONToolStripMenuItem_Click;
+            // 
+            // bINToolStripMenuItem
+            // 
+            bINToolStripMenuItem.Name = "bINToolStripMenuItem";
+            bINToolStripMenuItem.Size = new Size(127, 26);
+            bINToolStripMenuItem.Text = "BIN";
+            bINToolStripMenuItem.Click += bINToolStripMenuItem_Click;
+            // 
+            // toolStripSeparator1
+            // 
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(154, 6);
+            // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(154, 6);
             // 
             // fMainForm
             // 
@@ -113,11 +218,14 @@
             ClientSize = new Size(1202, 627);
             Controls.Add(pMainPanel);
             Controls.Add(pbMainField);
+            MainMenuStrip = menuStrip1;
             Name = "fMainForm";
             Text = "ООП";
             ((System.ComponentModel.ISupportInitialize)pbMainField).EndInit();
             pMainPanel.ResumeLayout(false);
             pMainPanel.PerformLayout();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -129,5 +237,17 @@
         private ComboBox cbFigure;
         private Button bBorder_color;
         private Button bFill_color;
+        private Button bDelete;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem файлToolStripMenuItem;
+        private ToolStripMenuItem открытьToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator;
+        private ToolStripMenuItem сохранитьToolStripMenuItem;
+        private ToolStripMenuItem jSONToolStripMenuItem;
+        private ToolStripMenuItem bINToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripMenuItem jSONToolStripMenuItem1;
+        private ToolStripMenuItem bINToolStripMenuItem1;
     }
 }
