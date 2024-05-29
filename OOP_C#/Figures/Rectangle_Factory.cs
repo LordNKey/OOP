@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_C_.Figures
 {
-    internal class Rectangle_Factory : Figure_Factory
+    public class Rectangle_Factory : Figure_Factory
     {
         public override string name { get => "Прямоугольник"; }
         public override Figure Create_Figure(Color fill_color_, Color border_color_, PointF start_point, PointF last_point)

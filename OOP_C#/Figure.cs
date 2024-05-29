@@ -15,7 +15,7 @@ using System.Collections;
 
 namespace OOP_C_
 {
-    internal class Figure
+    public class Figure
     {
         public Figure(Color fill_color_, Color border_color_, PointF top_corner_point, PointF lower_corner_point)
         {
@@ -118,25 +118,57 @@ namespace OOP_C_
 
         public static void Unserialisation_BIN(BinaryReader reader)
         {
-            Figure_Factory figure_;
+            //Figure_Factory figure_;
             while (reader.BaseStream.Position != reader.BaseStream.Length)
             {
                 string name_figure = reader.ReadString();
                 string name_factory = name_figure + "_Factory";
+
+                Figure figure = null;
+
                 Type type_figure = Type.GetType(name_figure);
-                Figure figure = (Figure)Activator.CreateInstance(type_figure, ColorTranslator.FromWin32(reader.ReadInt32()),
-                                                                 ColorTranslator.FromWin32(reader.ReadInt32()),
-                                                                 new PointF(reader.ReadSingle(), reader.ReadSingle()),
-                                                                 new PointF(reader.ReadSingle(), reader.ReadSingle()));
-               
+                if(type_figure == null)
+                {
+                    // Getting the base path to the project (project folder)
+                    string projectDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+
+                    // Path to the folder with DLL
+                    string dllDirectory = Path.Combine(projectDirectory, "DLLS");
+
+                    if (Directory.Exists(dllDirectory))
+                    {
+                        // Search for all DLL files in the folder
+                        string[] dllFiles = Directory.GetFiles(dllDirectory, "*.dll");
+
+                        foreach (string dllFile in dllFiles)
+                        {
+                            // Work with DLL
+                            Assembly assemblyDll = Assembly.LoadFrom(dllFile);
+                            Type[] typesDll = assemblyDll.GetTypes();
+
+                            foreach (var type in typesDll)
+                            {
+                                if (type.ToString() == name_figure)
+                                {
+                                    type_figure = type;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                figure = (Figure)Activator.CreateInstance(type_figure, ColorTranslator.FromWin32(reader.ReadInt32()),
+                                                          ColorTranslator.FromWin32(reader.ReadInt32()),
+                                                          new PointF(reader.ReadSingle(), reader.ReadSingle()),
+                                                          new PointF(reader.ReadSingle(), reader.ReadSingle()));
+
                 figure.selected = reader.ReadBoolean();
                 figure.border_width = reader.ReadSingle();
                 int number = 0;
                 foreach (OOP_C_.Figure_Factory figure_factory in List_Concrete_Factories.factories)
                 {
-                    Type type = Type.GetType(name_factory);
-
-                    if (type.IsInstanceOfType(figure_factory))
+                    if (name_factory == figure_factory.ToString())
                     {
                         List_Figures.Add_Figure(figure, number);
                         break;
@@ -162,9 +194,7 @@ namespace OOP_C_
                 int number = 0;
                 foreach (OOP_C_.Figure_Factory figure_factory in List_Concrete_Factories.factories)
                 {
-                    Type type = Type.GetType(name_factory);
-
-                    if (type.IsInstanceOfType(figure_factory))
+                    if (name_factory == figure_factory.ToString())
                     {
                         List_Figures.Add_Figure((Figure)figure, number);
                         break;

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "0V+k58xou6W5TzaEmRGzCuI6NSmphIGCgT+ez05VVLGG5iFSU7oKPNTyLGAsXx5KPk907MTiPu9YPmjxuLzHwA==",
+  "success": true,
+  "projectFilePath": "D:\\Git_Repositories\\OOP\\Pentagon\\Pentagon.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ASUS\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

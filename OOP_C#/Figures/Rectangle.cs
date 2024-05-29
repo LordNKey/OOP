@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_C_.Figures
 {
-    internal class Rectangle : Figure
+    public class Rectangle : Figure
     {
         public Rectangle(Color fill_color_, Color border_color_, PointF top_corner_point, PointF lower_corner_point) :
             base(fill_color_, border_color_, top_corner_point, lower_corner_point)

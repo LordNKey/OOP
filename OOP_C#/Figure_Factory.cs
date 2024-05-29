@@ -16,7 +16,7 @@ using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace OOP_C_
 {
-    internal abstract class Figure_Factory
+    public abstract class Figure_Factory
     {
         public virtual string name { get => "Figure"; }
         //protected string name = "Figure"; 
@@ -80,11 +80,11 @@ namespace OOP_C_
 
         public static void Initialize()
         {
-            Assembly assembly = Assembly.GetExecutingAssembly();
+            Assembly assemblyProject = Assembly.GetExecutingAssembly();
 
-            Type[] types = assembly.GetTypes();
+            Type[] typesProject = assemblyProject.GetTypes();
 
-            List<Type> tempList = types.Where(t => t.IsSubclassOf(typeof(Figure_Factory))).ToList();
+            List<Type> tempList = typesProject.Where(t => t.IsSubclassOf(typeof(Figure_Factory))).ToList();
             foreach (var type in tempList)
             {
                 if (!type.IsAbstract)
@@ -92,7 +92,57 @@ namespace OOP_C_
                     factories.Add(Activator.CreateInstance(type) as Figure_Factory);
                 }
             }
+
+            // Getting the base path to the project (project folder)
+            string projectDirectory = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+
+            // Path to the folder with DLL
+            string dllDirectory = Path.Combine(projectDirectory, "DLLS");
+
+            if (Directory.Exists(dllDirectory))
+            {
+                // Search for all DLL files in the folder
+                string[] dllFiles = Directory.GetFiles(dllDirectory, "*.dll");
+
+                foreach (string dllFile in dllFiles)
+                {
+                    try
+                    {
+                        // Work with DLL
+                        Assembly assemblyDll = Assembly.LoadFrom(dllFile);
+
+
+                        Type[] typesDll = assemblyDll.GetTypes();
+
+                        // Factories
+                        List<Type> factoriesList = typesDll.Where(t => t.IsSubclassOf(typeof(Figure_Factory))).ToList();
+                        foreach (var type in factoriesList)
+                        {
+                            if (!type.IsAbstract)
+                            {
+                                factories.Add(Activator.CreateInstance(type) as Figure_Factory);
+                            }
+                        }
+
+                        // Figures
+                        List<Type> figuresList = typesDll.Where(t => t.IsSubclassOf(typeof(Figure_Factory))).ToList();
+                        foreach (var type in figuresList)
+                        {
+                            if (!type.IsAbstract)
+                            {
+                                factories.Add(Activator.CreateInstance(type) as Figure_Factory);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                }
+
+            }
         }
+
 
         /*public static List<Figure_Factory> factories = new List<Figure_Factory>(new() { new Square_Factory(),
                                                     new Rectangle_Factory(),
