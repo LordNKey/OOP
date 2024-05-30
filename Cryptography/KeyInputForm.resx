@@ -117,32 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="открытьToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAHYSURBVEhLrZS9SgNBFIXzBOIj+AKCLyD4CIKtgr2NtqbR
-        Uqu1jFgoWGihiIVEixAM+FMYLMRAkEQDRjQhiZqfcpxvnLtsdpOwyebCYZOde8+5c8/MxgZFs9mc0Xjl
-        aV+NLyBtt9sNDcVzrCJCfpd7VxNLBypx+WREWq3WvE2JFp1OZ5nOjzN5FVvYM7AiijWbFj4s4ZnuPC2g
-        YwghjiSiCxyKBLlSRSUfil1YdFKjiwgx856Nn7tEg0AuNaE8IfGj2jBmUjy9dqLih/ddWNnNuOTsRprS
-        ePSO1Y7W0bubsvT/Atun2V7FBogj6l0vZ49UtXCr6uVcF76/ilLXcEV4ITNm3jbBoBf5b62sXi7W++Lt
-        esfk6fFtuAKMARIxUNBvZ3T/+ZwMoJjaMiI2z3EF6BwiuVR0LmR+0UEo3SRcga4dAIgQAf5RhUVfAbaH
-        QRw/xsVd8BaGhVdAnyg+kmkj4F0wiz+1wAkJAwyGh98cBrh6CmAi/6Ogkk/3F5BOooApaB/2AwJ44U8e
-        FlxEuPRlmwsIsOgvGBZ4gMnuKRIBtlW42gwUDAMuG5x6PKsBgXGaW6/XJ0WgIWMZq7kSWsDhpf+7MgqY
-        AN0bcyXYCtcaU1iMCtdcE7HYH0a977S7I6Y7AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="сохранитьToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAADbSURBVEhL7ZUxCsIwGIVzAvFA3sJVDyK9gZMHcFGcHZyc
-        xE0dFDdHJ+dYG7JGnpD4qkkDNYJgCx+0f9//PiiBCillWym11lqblKAT3cKWb08Xk812SUCXlQhb3upP
-        jOiOk4AuK3kIYPUFPwGdXkEnW5jBdFML7EYFCF5lXgvsNoJKfkPw9VOUikYQJSrwnZIqXvf/TBCaM5wB
-        JcFwfngLhJZ5znAGsOCIm95oVQqElnnOcAY4AX7MPklomecMZ4AT4GIJPhdeFrfCgWcLzxnOgOX+/BTg
-        Ykk6tLkDP0SRNRvmiVAAAAAASUVORK5CYII=
-</value>
-  </data>
 </root>

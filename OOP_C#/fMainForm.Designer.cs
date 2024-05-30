@@ -47,6 +47,7 @@
             bINToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
             toolStripSeparator2 = new ToolStripSeparator();
+            настройкиToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)pbMainField).BeginInit();
             pMainPanel.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -134,7 +135,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { файлToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { файлToolStripMenuItem, настройкиToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1198, 28);
@@ -155,7 +156,7 @@
             открытьToolStripMenuItem.ImageTransparentColor = Color.Magenta;
             открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
             открытьToolStripMenuItem.ShowShortcutKeys = false;
-            открытьToolStripMenuItem.Size = new Size(157, 26);
+            открытьToolStripMenuItem.Size = new Size(224, 26);
             открытьToolStripMenuItem.Text = "&Открыть";
             // 
             // jSONToolStripMenuItem1
@@ -163,19 +164,19 @@
             jSONToolStripMenuItem1.Name = "jSONToolStripMenuItem1";
             jSONToolStripMenuItem1.Size = new Size(127, 26);
             jSONToolStripMenuItem1.Text = "JSON";
-            jSONToolStripMenuItem1.Click += jSONToolStripMenuItem1_Click;
+            jSONToolStripMenuItem1.Click += jSONToolStripMenuOpen_Click;
             // 
             // bINToolStripMenuItem1
             // 
             bINToolStripMenuItem1.Name = "bINToolStripMenuItem1";
             bINToolStripMenuItem1.Size = new Size(127, 26);
             bINToolStripMenuItem1.Text = "BIN";
-            bINToolStripMenuItem1.Click += bINToolStripMenuItem1_Click;
+            bINToolStripMenuItem1.Click += bINToolStripMenuOpen_Click;
             // 
             // toolStripSeparator
             // 
             toolStripSeparator.Name = "toolStripSeparator";
-            toolStripSeparator.Size = new Size(154, 6);
+            toolStripSeparator.Size = new Size(221, 6);
             // 
             // сохранитьToolStripMenuItem
             // 
@@ -184,7 +185,7 @@
             сохранитьToolStripMenuItem.ImageTransparentColor = Color.Magenta;
             сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
             сохранитьToolStripMenuItem.ShowShortcutKeys = false;
-            сохранитьToolStripMenuItem.Size = new Size(157, 26);
+            сохранитьToolStripMenuItem.Size = new Size(224, 26);
             сохранитьToolStripMenuItem.Text = "&Сохранить";
             // 
             // jSONToolStripMenuItem
@@ -192,24 +193,30 @@
             jSONToolStripMenuItem.Name = "jSONToolStripMenuItem";
             jSONToolStripMenuItem.Size = new Size(127, 26);
             jSONToolStripMenuItem.Text = "JSON";
-            jSONToolStripMenuItem.Click += jSONToolStripMenuItem_Click;
+            jSONToolStripMenuItem.Click += jSONToolStripMenuSave_Click;
             // 
             // bINToolStripMenuItem
             // 
             bINToolStripMenuItem.Name = "bINToolStripMenuItem";
             bINToolStripMenuItem.Size = new Size(127, 26);
             bINToolStripMenuItem.Text = "BIN";
-            bINToolStripMenuItem.Click += bINToolStripMenuItem_Click;
+            bINToolStripMenuItem.Click += bINToolStripMenuSave_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(154, 6);
+            toolStripSeparator1.Size = new Size(221, 6);
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(154, 6);
+            toolStripSeparator2.Size = new Size(221, 6);
+            // 
+            // настройкиToolStripMenuItem
+            // 
+            настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
+            настройкиToolStripMenuItem.Size = new Size(152, 24);
+            настройкиToolStripMenuItem.Text = "Настройки";
             // 
             // fMainForm
             // 
@@ -249,5 +256,6 @@
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripMenuItem jSONToolStripMenuItem1;
         private ToolStripMenuItem bINToolStripMenuItem1;
+        private ToolStripMenuItem настройкиToolStripMenuItem;
     }
 }

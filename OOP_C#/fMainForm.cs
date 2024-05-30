@@ -23,7 +23,6 @@ namespace OOP_C_
             List_Figures.Draw_Figures(graphic);
         }
 
-
         Color fill_color;
         Color border_color;
         PointF first_point;
@@ -135,7 +134,10 @@ namespace OOP_C_
             }
         }
 
-        private void jSONToolStripMenuItem1_Click(object sender, EventArgs e)
+        ///////////////////////
+        /// Deserialisation ///
+        ///////////////////////
+        private void jSONToolStripMenuOpen_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog OpenFile = new OpenFileDialog())
             {
@@ -152,7 +154,7 @@ namespace OOP_C_
             pbMainField.Update();
         }
 
-        private void bINToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void bINToolStripMenuOpen_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog OpenFile = new OpenFileDialog())
             {
@@ -175,7 +177,10 @@ namespace OOP_C_
             pbMainField.Update();
         }
 
-        private void jSONToolStripMenuItem_Click(object sender, EventArgs e)
+        /////////////////////
+        /// Serialisation ///
+        /////////////////////
+        private void jSONToolStripMenuSave_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog SaveFile = new SaveFileDialog())
             {
@@ -184,12 +189,13 @@ namespace OOP_C_
 
                 if (SaveFile.ShowDialog() == DialogResult.OK)
                 {
-                    File.WriteAllText(SaveFile.FileName, List_Figures.Serialisation_JSON());
+                    string preSave = List_Figures.Serialisation_JSON();
+                    File.WriteAllText(SaveFile.FileName, preSave);
                 }
             }
         }
 
-        private void bINToolStripMenuItem_Click(object sender, EventArgs e)
+        private void bINToolStripMenuSave_Click(object sender, EventArgs e)
         {
             using (SaveFileDialog SaveFile = new SaveFileDialog())
             {
@@ -222,7 +228,7 @@ namespace OOP_C_
             }
             // Delete
             foreach (Figure figure in figures_to_remove)
-            { 
+            {
                 change_figure.Remove(figure);
             }
 
