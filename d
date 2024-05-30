@@ -1,0 +1,69 @@
+[33mcommit 73dd5bdb3d8c6637b3b92b3ea40f9e1510d7d058[m[33m ([m[1;36mHEAD[m[33m)[m
+Author: LordN <119818933+LordNKey@users.noreply.github.com>
+Date:   Mon May 27 19:07:32 2024 +0300
+
+    Lab3 Ready
+    
+    Bad code
+
+[33mcommit 356f9af7d79b5e766bd9c3122a36cf2b12458e6b[m
+Author: LordN <119818933+LordNKey@users.noreply.github.com>
+Date:   Sat May 11 00:05:53 2024 +0300
+
+    Now nothing isn't ready
+    
+    same
+
+[33mcommit 84f2708ef9c0ef4a6b4619715ca47f4bb22e1349[m
+Author: LordN <119818933+LordNKey@users.noreply.github.com>
+Date:   Fri May 10 21:26:28 2024 +0300
+
+    Project
+    
+    Пытаюсь что-то сделать с гит. А гит на каждый чих реагирует
+
+[33mcommit e24055bed7459cf1d3cdd67adbdaedc744faa8b1[m[33m ([m[1;31morigin/OOP_4___NO_3[m[33m)[m
+Author: LordN <119818933+LordNKey@users.noreply.github.com>
+Date:   Sat Apr 13 13:15:37 2024 +0300
+
+    Всё плохо
+    
+    ERROR
+
+[33mcommit 98eca42d566bf6ca461857f7c15662f7085b5d74[m
+Author: LordN <119818933+LordNKey@users.noreply.github.com>
+Date:   Sat Apr 13 12:08:03 2024 +0300
+
+    OOP Lab_2
+    
+    OOP Lab2
+
+[33mcommit b89fc139cc6a57a4bcda2cfc3f5b66d6786cfbc3[m
+Author: LordN <119818933+LordNKey@users.noreply.github.com>
+Date:   Fri Apr 12 23:20:33 2024 +0300
+
+    Nothing
+    
+    VS & IntelliJ
+
+[33mcommit 8500b95a0c2f4803c7869e962a0f5314044e960f[m
+Author: LordN <119818933+LordNKey@users.noreply.github.com>
+Date:   Fri Apr 12 23:17:03 2024 +0300
+
+    OOP_Lab1
+    
+    All needed to OOP lab №1
+
+[33mcommit c6cb6318151242c4f5f462d758c0b6a9bb006d68[m
+Author: LordN <119818933+LordNKey@users.noreply.github.com>
+Date:   Thu Apr 11 01:47:35 2024 +0300
+
+    Start
+    
+    Start OOP Labs 1-3...
+
+[33mcommit 8269a83907a6dd4249676ad07763b5c807ad8223[m
+Author: LordN <119818933+LordNKey@users.noreply.github.com>
+Date:   Thu Apr 11 01:30:46 2024 +0300
+
+    Initial commit
