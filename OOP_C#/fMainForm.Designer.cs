@@ -36,7 +36,7 @@
             bFill_color = new Button();
             lFigure = new Label();
             cbFigure = new ComboBox();
-            menuStrip1 = new MenuStrip();
+            msMainMenu = new MenuStrip();
             файлToolStripMenuItem = new ToolStripMenuItem();
             открытьToolStripMenuItem = new ToolStripMenuItem();
             jSONToolStripMenuItem1 = new ToolStripMenuItem();
@@ -50,7 +50,7 @@
             настройкиToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)pbMainField).BeginInit();
             pMainPanel.SuspendLayout();
-            menuStrip1.SuspendLayout();
+            msMainMenu.SuspendLayout();
             SuspendLayout();
             // 
             // pbMainField
@@ -76,7 +76,7 @@
             pMainPanel.Controls.Add(bFill_color);
             pMainPanel.Controls.Add(lFigure);
             pMainPanel.Controls.Add(cbFigure);
-            pMainPanel.Controls.Add(menuStrip1);
+            pMainPanel.Controls.Add(msMainMenu);
             pMainPanel.Location = new Point(1, 1);
             pMainPanel.Name = "pMainPanel";
             pMainPanel.Size = new Size(1200, 77);
@@ -132,15 +132,15 @@
             cbFigure.TabIndex = 0;
             cbFigure.Text = "Выберете фигуру";
             // 
-            // menuStrip1
+            // msMainMenu
             // 
-            menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { файлToolStripMenuItem, настройкиToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1198, 28);
-            menuStrip1.TabIndex = 5;
-            menuStrip1.Text = "menuStrip1";
+            msMainMenu.ImageScalingSize = new Size(20, 20);
+            msMainMenu.Items.AddRange(new ToolStripItem[] { файлToolStripMenuItem, настройкиToolStripMenuItem });
+            msMainMenu.Location = new Point(0, 0);
+            msMainMenu.Name = "msMainMenu";
+            msMainMenu.Size = new Size(1198, 28);
+            msMainMenu.TabIndex = 5;
+            msMainMenu.Text = "menuStrip1";
             // 
             // файлToolStripMenuItem
             // 
@@ -156,7 +156,7 @@
             открытьToolStripMenuItem.ImageTransparentColor = Color.Magenta;
             открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
             открытьToolStripMenuItem.ShowShortcutKeys = false;
-            открытьToolStripMenuItem.Size = new Size(224, 26);
+            открытьToolStripMenuItem.Size = new Size(157, 26);
             открытьToolStripMenuItem.Text = "&Открыть";
             // 
             // jSONToolStripMenuItem1
@@ -176,7 +176,7 @@
             // toolStripSeparator
             // 
             toolStripSeparator.Name = "toolStripSeparator";
-            toolStripSeparator.Size = new Size(221, 6);
+            toolStripSeparator.Size = new Size(154, 6);
             // 
             // сохранитьToolStripMenuItem
             // 
@@ -185,7 +185,7 @@
             сохранитьToolStripMenuItem.ImageTransparentColor = Color.Magenta;
             сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
             сохранитьToolStripMenuItem.ShowShortcutKeys = false;
-            сохранитьToolStripMenuItem.Size = new Size(224, 26);
+            сохранитьToolStripMenuItem.Size = new Size(157, 26);
             сохранитьToolStripMenuItem.Text = "&Сохранить";
             // 
             // jSONToolStripMenuItem
@@ -205,17 +205,17 @@
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(221, 6);
+            toolStripSeparator1.Size = new Size(154, 6);
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(221, 6);
+            toolStripSeparator2.Size = new Size(154, 6);
             // 
             // настройкиToolStripMenuItem
             // 
             настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
-            настройкиToolStripMenuItem.Size = new Size(152, 24);
+            настройкиToolStripMenuItem.Size = new Size(98, 24);
             настройкиToolStripMenuItem.Text = "Настройки";
             // 
             // fMainForm
@@ -225,14 +225,14 @@
             ClientSize = new Size(1202, 627);
             Controls.Add(pMainPanel);
             Controls.Add(pbMainField);
-            MainMenuStrip = menuStrip1;
+            MainMenuStrip = msMainMenu;
             Name = "fMainForm";
             Text = "ООП";
             ((System.ComponentModel.ISupportInitialize)pbMainField).EndInit();
             pMainPanel.ResumeLayout(false);
             pMainPanel.PerformLayout();
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
+            msMainMenu.ResumeLayout(false);
+            msMainMenu.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -245,7 +245,7 @@
         private Button bBorder_color;
         private Button bFill_color;
         private Button bDelete;
-        private MenuStrip menuStrip1;
+        private MenuStrip msMainMenu;
         private ToolStripMenuItem файлToolStripMenuItem;
         private ToolStripMenuItem открытьToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator;

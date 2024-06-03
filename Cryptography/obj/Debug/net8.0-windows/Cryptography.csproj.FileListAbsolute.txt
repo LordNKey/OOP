@@ -11,10 +11,11 @@ D:\Git_Repositories\OOP\Cryptography\bin\Debug\net8.0-windows\Cryptography.deps.
 D:\Git_Repositories\OOP\Cryptography\bin\Debug\net8.0-windows\Cryptography.dll
 D:\Git_Repositories\OOP\Cryptography\bin\Debug\net8.0-windows\Cryptography.pdb
 D:\Git_Repositories\OOP\Cryptography\bin\Debug\net8.0-windows\OOP_C#.dll
-D:\Git_Repositories\OOP\Cryptography\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
 D:\Git_Repositories\OOP\Cryptography\bin\Debug\net8.0-windows\OOP_C#.pdb
 D:\Git_Repositories\OOP\Cryptography\obj\Debug\net8.0-windows\Cryptography.csproj.CopyComplete
 D:\Git_Repositories\OOP\Cryptography\obj\Debug\net8.0-windows\Cryptography.dll
 D:\Git_Repositories\OOP\Cryptography\obj\Debug\net8.0-windows\refint\Cryptography.dll
 D:\Git_Repositories\OOP\Cryptography\obj\Debug\net8.0-windows\Cryptography.pdb
 D:\Git_Repositories\OOP\Cryptography\obj\Debug\net8.0-windows\ref\Cryptography.dll
+D:\Git_Repositories\OOP\Cryptography\obj\Debug\net8.0-windows\Cryptography.KeyInputForm.resources
+D:\Git_Repositories\OOP\Cryptography\obj\Debug\net8.0-windows\Cryptography.csproj.GenerateResource.cache

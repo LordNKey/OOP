@@ -1,12 +1,15 @@
 using OOP_C_.Figures;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Windows.Forms;
+using static OOP_C_.List_Settings;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace OOP_C_
 {
     public partial class fMainForm : Form
     {
+        internal List_Settings listSettings; 
         public fMainForm()
         {
             InitializeComponent();
@@ -15,7 +18,33 @@ namespace OOP_C_
             {
                 cbFigure.Items.Add(factory.name);
             }
+
+
+            listSettings = new List_Settings();
+            listSettings.LoadAll();
+            ToolStripMenuItem settings = (ToolStripMenuItem)msMainMenu.Items.Find("íàñòðîéêèToolStripMenuItem", false)[0];
+            for (int i = 0; i < listSettings.settingsList.Count; i++)
+            {
+                File_DLL setting = listSettings.settingsList[i];
+
+                // Menu Subitem
+                ToolStripMenuItem newSubMenuItem = new ToolStripMenuItem(setting.settingItem)
+                {
+                    Checked = false,
+                    CheckOnClick = true
+                };
+
+                // Event Click
+                newSubMenuItem.CheckedChanged += delegate (object sender, EventArgs e)
+                {
+                    setting.set = !setting.set;
+                };
+
+                // Add Subitem
+                settings.DropDownItems.Add(newSubMenuItem);
+            }
         }
+
 
         private void pbMainField_Paint(object sender, PaintEventArgs e)
         {
@@ -147,7 +176,7 @@ namespace OOP_C_
                 if (OpenFile.ShowDialog() == DialogResult.OK)
                 {
                     string json = File.ReadAllText(OpenFile.FileName);
-                    List_Figures.Unserialisation_JSON(json);
+                    List_Figures.Unserialisation_JSON(listSettings.PreOpen(json));
                 }
             }
             pbMainField.Invalidate();
@@ -190,7 +219,7 @@ namespace OOP_C_
                 if (SaveFile.ShowDialog() == DialogResult.OK)
                 {
                     string preSave = List_Figures.Serialisation_JSON();
-                    File.WriteAllText(SaveFile.FileName, preSave);
+                    File.WriteAllText(SaveFile.FileName, listSettings.PostSave(preSave));
                 }
             }
         }
