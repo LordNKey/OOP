@@ -34,7 +34,7 @@ namespace Cryptography
                 }
                 byte[] str = msEncrypt.ToArray();
                 int len = str.Length;
-                return Encoding.UTF8.GetString(str);
+                return Convert.ToBase64String(str);
             }
         }
 
@@ -52,31 +52,17 @@ namespace Cryptography
 
             ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
 
-            byte[] byteData = Encoding.UTF8.GetBytes(fileData);
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+            byte[] byteData = Convert.FromBase64String(fileData);
             using (MemoryStream msDecrypt = new MemoryStream(byteData))
             {
                 using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
                 {
                     using (StreamReader srDecrypt = new StreamReader(csDecrypt))
                     {
-
-                        // Создаем StringBuilder для хранения расшифрованной строки
-                        StringBuilder sb = new StringBuilder();
-
-                        // Читаем расшифрованные данные блоками
-                        int bufferSize = 1;
-                        char[] buffer = new char[bufferSize];
-                        int bytesRead;
-                        while ((bytesRead = srDecrypt.ReadBlock(buffer, 0, bufferSize)) > 0)
-                        {
-                            // Добавляем прочитанные данные к StringBuilder
-                            sb.Append(buffer, 0, bytesRead);
-                        }
-
-                        // Получаем расшифрованную строку
-                        return sb.ToString();
+                        return srDecrypt.ReadToEnd();
                     }
-                    //return Encoding.UTF8.GetString(msDecrypt.ToArray());
                 }
             }
         }

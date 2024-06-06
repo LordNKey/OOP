@@ -1,4 +1,5 @@
 using OOP_C_.Figures;
+using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Windows.Forms;
@@ -192,6 +193,8 @@ namespace OOP_C_
 
                 if (OpenFile.ShowDialog() == DialogResult.OK)
                 {
+                    string fileData = File.ReadAllText(OpenFile.FileName, Encoding.GetEncoding("iso-8859-1"));
+                    File.WriteAllText(OpenFile.FileName, listSettings.PreOpen(fileData));
                     using (var stream = File.Open(OpenFile.FileName, FileMode.Open))
                     {
                         using (var reader = new BinaryReader(stream, Encoding.UTF8, false))
@@ -237,9 +240,12 @@ namespace OOP_C_
                     {
                         using (var writer = new BinaryWriter(stream, Encoding.UTF8, false))
                         {
+                            
                             List_Figures.Serialisation_BIN(writer);
                         }
                     }
+                    string preSave = File.ReadAllText(SaveFile.FileName, Encoding.UTF8);
+                    File.WriteAllText(SaveFile.FileName, listSettings.PostSave(preSave));
                     //File.WriteAllBytes(SaveFile.FileName, Bytes);
                 }
             }
