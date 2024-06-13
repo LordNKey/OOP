@@ -1,4 +1,5 @@
 using OOP_C_.Figures;
+using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
@@ -193,8 +194,11 @@ namespace OOP_C_
 
                 if (OpenFile.ShowDialog() == DialogResult.OK)
                 {
-                    string fileData = File.ReadAllText(OpenFile.FileName, Encoding.GetEncoding("iso-8859-1"));
-                    File.WriteAllText(OpenFile.FileName, listSettings.PreOpen(fileData));
+                    Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+                    string fileData = File.ReadAllText(OpenFile.FileName, Encoding.GetEncoding(1252));
+                    File.WriteAllText(OpenFile.FileName, listSettings.PreOpen(fileData), Encoding.GetEncoding(1252));
+
                     using (var stream = File.Open(OpenFile.FileName, FileMode.Open))
                     {
                         using (var reader = new BinaryReader(stream, Encoding.UTF8, false))
@@ -202,6 +206,7 @@ namespace OOP_C_
                             List_Figures.Unserialisation_BIN(reader);
                         }
                     }
+                    
                     //File.WriteAllBytes(SaveFile.FileName, Bytes);
                 }
             }
@@ -244,8 +249,10 @@ namespace OOP_C_
                             List_Figures.Serialisation_BIN(writer);
                         }
                     }
-                    string preSave = File.ReadAllText(SaveFile.FileName, Encoding.UTF8);
-                    File.WriteAllText(SaveFile.FileName, listSettings.PostSave(preSave));
+                    Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+                    string preSave = File.ReadAllText(SaveFile.FileName, Encoding.GetEncoding(1252));
+                    File.WriteAllText(SaveFile.FileName, listSettings.PostSave(preSave), Encoding.GetEncoding(1252));
                     //File.WriteAllBytes(SaveFile.FileName, Bytes);
                 }
             }
