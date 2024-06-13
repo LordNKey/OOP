@@ -60,15 +60,30 @@ namespace OOP_C_
         bool create = false;
         bool change = false;
         List<Figure> change_figure = new List<Figure>();
+        bool mouseDown = false;
+        PointF coordinateMouseDown;
         private void pbMainField_MouseDown(object sender, MouseEventArgs e)
         {
+            mouseDown = true;
+            coordinateMouseDown = e.Location;
             Figure tmp;
             if ((tmp = List_Figures.Search_Figure(e.Location)) != null)
             {
-                change_figure.Add(tmp);
-                change = true;
-                bFill_color.BackColor = fill_color = change_figure.Last().fill_color;
-                bBorder_color.BackColor = border_color = change_figure.Last().border_color;
+                bool in_change = false;
+                foreach(Figure figure in change_figure)
+                {
+                    if(tmp == figure)
+                    {
+                        in_change = true; //break;
+                    }
+                }
+                if (!in_change)
+                {
+                    change_figure.Add(tmp);
+                    change = true;
+                    bFill_color.BackColor = fill_color = change_figure.Last().fill_color;
+                    bBorder_color.BackColor = border_color = change_figure.Last().border_color;
+                }
             }
             else
             {
@@ -82,9 +97,12 @@ namespace OOP_C_
                 int index = cbFigure.SelectedIndex;
                 if (!create)
                 {
-                    create = true;
-                    first_point = e.Location;
-                    List_Figures.Add_Figure(List_Concrete_Factories.factories[index].Create_Figure(fill_color, border_color, first_point, first_point), index);
+                    if (index != -1)
+                    {
+                        create = true;
+                        first_point = e.Location;
+                        List_Figures.Add_Figure(List_Concrete_Factories.factories[index].Create_Figure(fill_color, border_color, first_point, first_point), index);
+                    }
                 }
             }
             pbMainField.Invalidate();
@@ -99,6 +117,23 @@ namespace OOP_C_
                 pbMainField.Invalidate();
                 pbMainField.Update();
             }
+            if(mouseDown)
+            {
+                foreach(Figure figure in change_figure)
+                {
+                    float dX = e.X - coordinateMouseDown.X;
+                    float dY = e.Y - coordinateMouseDown.Y;
+
+                    figure.top_corner_point.X += dX;
+                    figure.top_corner_point.Y += dY;
+                    figure.lower_corner_point.X += dX;
+                    figure.lower_corner_point.Y += dY;
+                }
+                coordinateMouseDown = e.Location;
+
+                pbMainField.Invalidate();
+                pbMainField.Update();
+            }   
         }
 
         private void bFill_color_Click(object sender, EventArgs e)
@@ -163,6 +198,7 @@ namespace OOP_C_
             {
                 create = false;
             }
+            mouseDown = false;
         }
 
         ///////////////////////
