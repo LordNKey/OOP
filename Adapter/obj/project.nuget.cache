@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "tEV+ajSeMyq7H0y3rXvO3vll8f03kVkrUE+7AT8Tjclhk2AR2MeGgAUcGwzuzqev5IbHCCR0KkkyeeTa6Kv5SA==",
+  "success": true,
+  "projectFilePath": "D:\\Git_Repositories\\OOP\\Adapter\\Adapter.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ASUS\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
